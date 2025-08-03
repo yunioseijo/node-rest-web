@@ -6,6 +6,7 @@ node_modules/
 .parcel-cache/
 /coverage/
 logs/
+keys/
 
 /mongo/
 /postgres/
