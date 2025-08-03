@@ -1,0 +1,65 @@
+# Directorio de dependencias
+node_modules/
+/dist/
+/build/
+.cache/
+.parcel-cache/
+/coverage/
+logs/
+
+/mongo/
+/postgres/
+
+# Archivos de logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.log
+
+# Variables de entorno
+.env
+.env.development
+.env.production
+.env.local
+.env.test
+.env.*.local
+
+# Archivos de IDE y sistema operativo
+.DS_Store
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.idea/
+
+# Archivos temporales
+*.tmp
+*.bak
+temp/
+tmp/
+
+# Archivos de compilación o transpilación
+*.js.map
+*.d.ts
+
+# Datos de pruebas y reportes
+/test-results/
+junit.xml
+
+# Archivos de paquetes bloqueados (opcional, si los manejas a mano)
+package-lock.json
+yarn.lock
+
+# Otros
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Archivos de base de datos
+*.sqlite
+*.sqlite-journal
+
+# Credenciales y claves sensibles (si las tienes fuera de .env)
+# keys/
+# credentials/
+/src/generated/prisma

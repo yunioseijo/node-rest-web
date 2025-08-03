@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsnd --respawn --clear src/app.ts",
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node dist/app.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/yunioseijo/node-rest-web/issues"
   },
-  "homepage": "https://github.com/yunioseijo/node-rest-web#readme"
+  "homepage": "https://github.com/yunioseijo/node-rest-web#readme",
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "rimraf": "^6.0.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.2"
+  }
 }
