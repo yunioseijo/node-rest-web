@@ -21,4 +21,20 @@ export class TodoController {
       ? res.json(todo)
       : res.status(404).json({ error: `Todo with id ${id} not found` });
   };
+  public createTodo = (req: Request, res: Response) => {
+    const { title, description } = req.body;
+    //Validate field title and description
+    if (!title || !description)
+      return res
+        .status(400)
+        .json({ error: "Title and description are required" });
+    const newTodo = {
+      id: todos.length + 1,
+      title,
+      description,
+      completed: false,
+    };
+    todos.push(newTodo);
+    res.status(201).json(newTodo);
+  };
 }
