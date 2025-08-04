@@ -56,4 +56,17 @@ export class TodoController {
     //Return updated todo
     return res.json(todo);
   };
+  public deleteTodo = (req: Request, res: Response) => {
+    const id = +req.params.id;
+    if (isNaN(id))
+      return res.status(400).json({ error: "ID argument is not a number" });
+    //* delete using filter
+    //* todos = todos.filter((todo) => todo.id !== Number(id));
+    //* return res.json({ message: "Todo deleted successfully" });
+    const todoIndex = todos.findIndex((todo) => todo.id === Number(id));
+    if (todoIndex === -1)
+      return res.status(404).json({ error: `Todo with id ${id} not found` });
+    todos.splice(todoIndex, 1);
+    return res.json({ message: "Todo deleted successfully" });
+  };
 }
