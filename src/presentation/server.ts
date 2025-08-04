@@ -23,6 +23,24 @@ export class Server {
     //* Public Folder
     this.app.use(express.static(this.public_path!));
 
+    //* Routes
+    this.app.get("/api/todos", (req, res) => {
+      return res.json([
+        {
+          id: 1,
+          title: "Todo 1",
+          description: "Description 1",
+          completed: true,
+        },
+        {
+          id: 2,
+          title: "Todo 2",
+          description: "Description 2",
+          completed: false,
+        },
+      ]);
+    });
+
     //SPA routes
     this.app.get(/.*/, (req, res) => {
       const indexPth = path.join(
