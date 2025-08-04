@@ -1,8 +1,9 @@
-import express from "express";
+import express, { Router } from "express";
 import path from "path";
 
 interface Options {
   port: number;
+  routes: Router;
   public_path?: string;
 }
 
@@ -10,11 +11,13 @@ export class Server {
   private app = express();
   private readonly port: number;
   private readonly public_path?: string;
+  private readonly routes: Router;
 
   constructor(options: Options) {
-    const { port, public_path = "public" } = options;
+    const { port, routes, public_path = "public" } = options;
     this.port = port;
     this.public_path = public_path;
+    this.routes = routes;
   }
 
   async start() {
@@ -24,22 +27,7 @@ export class Server {
     this.app.use(express.static(this.public_path!));
 
     //* Routes
-    this.app.get("/api/todos", (req, res) => {
-      return res.json([
-        {
-          id: 1,
-          title: "Todo 1",
-          description: "Description 1",
-          completed: true,
-        },
-        {
-          id: 2,
-          title: "Todo 2",
-          description: "Description 2",
-          completed: false,
-        },
-      ]);
-    });
+    this.app.use(this.routes);
 
     //SPA routes
     this.app.get(/.*/, (req, res) => {
