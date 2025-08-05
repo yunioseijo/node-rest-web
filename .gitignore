@@ -1,6 +1,6 @@
 # Directorio de dependencias
 node_modules/
-/dist/
+dist/
 /build/
 .cache/
 .parcel-cache/
@@ -9,7 +9,7 @@ logs/
 keys/
 
 /mongo/
-/postgres/
+postgres/
 
 # Archivos de logs
 npm-debug.log*
